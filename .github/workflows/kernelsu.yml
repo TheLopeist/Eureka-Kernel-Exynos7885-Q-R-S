@@ -1,0 +1,16 @@
+name: Sync KernelSU
+
+on:
+  schedule:
+    - cron: '0 13 * * 1'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+    
+      - name: Install dependencies
+        run: bash kernelsu.sh
