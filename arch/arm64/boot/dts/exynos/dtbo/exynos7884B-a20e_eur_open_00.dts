@@ -29,9 +29,12 @@
 		__overlay__ {
 			#address-cells = <2>;
 			#size-cells = <1>;
+			encryption {
+    			compatible = "android,crypto-footer";
+    			status = "okay";
+			};
 
 			model = "Samsung A20E EUR OPEN 00 - Eureka Exynos7885 R9.0";
-			
 			fm@14840000 {
 				without_elna = <1>;
 			};
@@ -124,6 +127,8 @@
 		sec-nfc,nfc_clkreq = <&gpp2 3 0x2>;
 		sec-nfc,pvdd_en = <&gpp6 4 1>;
 		clkctrl-reg = <0x11C8600C>;
+		
+		encryption = <&encryption>;
 
 		pinctrl-names = "default";
 		pinctrl-0 = <&nfc_pd &nfc_firm &nfc_int &nfc_clk &nfc_pvdd_en &nfc_clk_req>;
